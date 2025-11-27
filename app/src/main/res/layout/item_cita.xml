@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/txtConsultorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consultorio"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/txtMotivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Motivo"
+        android:textSize="15sp" />
+
+</LinearLayout>
