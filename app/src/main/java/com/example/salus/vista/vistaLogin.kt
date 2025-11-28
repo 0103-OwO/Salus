@@ -3,7 +3,6 @@ package com.example.salus.vista
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -66,25 +65,39 @@ class vistaLogin : AppCompatActivity(), contratoLogin.LoginView {
 
     override fun onLoginSuccess(response: loginResponse) {
         Toast.makeText(this, "Bienvenido ${response.nombre}", Toast.LENGTH_SHORT).show()
+
+        guardarSesion(response)
         when(response.tipo) {
             "medico" -> {
-                val intent = Intent(this, vistaMedico::class.java)
-                // Puedes pasar datos extra si quieres
+                val intent = Intent(this, CitasMedicoActivity::class.java)
                 intent.putExtra("NOMBRE_USUARIO", response.nombre)
-                intent.putExtra("ID_USUARIO", response.id)
+                intent.putExtra("ID_MEDICO", response.id)  // ← CAMBIAR A ID_MEDICO
                 startActivity(intent)
-                finish() // Para que no regrese al login al presionar atrás
+                finish()
             }
             "paciente" -> {
-                val intent = Intent(this, vistaPaciente::class.java)
+                val intent = Intent(this, CitasActivity::class.java)
                 intent.putExtra("NOMBRE_USUARIO", response.nombre)
-                intent.putExtra("ID_USUARIO", response.id)
+                intent.putExtra("ID_PACIENTE", response.id) // Cambiar a ID_PACIENTE
                 startActivity(intent)
                 finish()
             }
             else -> {
                 Toast.makeText(this, "Tipo de usuario desconocido", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+    private fun guardarSesion(response: loginResponse) {
+        val prefs = getSharedPreferences("MiApp", MODE_PRIVATE)
+        prefs.edit().apply {
+            putInt("id_paciente", response.id ?: 0)
+            putInt("id_medico", response.id ?: 0)
+            putString("nombre", response.nombre)
+            putString("tipo", response.tipo)
+            putString("token", response.token)
+            putInt("rol", response.rol ?: 0)
+            putBoolean("sesion_activa", true)
+            apply()
         }
     }
 

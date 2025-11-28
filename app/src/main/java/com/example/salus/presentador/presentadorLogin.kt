@@ -32,9 +32,10 @@
                         return
                     }
 
-                    // --- Si la respuesta es exitosa ---
                     val body = response.body()
                     Log.i("LOGIN", "Respuesta exitosa: $body")
+                    Log.i("LOGIN", "ID recibido: ${body?.id}")  // ← AGREGAR ESTE LOG
+                    Log.i("LOGIN", "Tipo: ${body?.tipo}")        // ← AGREGAR ESTE LOG
 
                     if (body != null && body.status == "ok") {
                         view?.onLoginSuccess(body)

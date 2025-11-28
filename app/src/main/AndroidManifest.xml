@@ -17,10 +17,10 @@
         android:theme="@style/Theme.Salus"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".vista.AdaptadorCitas"
+            android:name=".vista.CitasMedicoActivity"
             android:exported="false" />
         <activity
-            android:name=".vista.vistaPaciente"
+            android:name=".vista.CitasActivity"
             android:exported="false" />
         <activity
             android:name=".vista.vistaMedico"
