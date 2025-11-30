@@ -99,34 +99,17 @@
     <LinearLayout
         android:id="@+id/footer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:padding="10dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="#E9F2FB">
-
         <TextView
-            android:id="@+id/txtDireccion"
+            android:id="@+id/txtUbicacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ubicación: Cargando..."
-            android:textSize="12sp"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/txtCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Correo: Cargando..."
-            android:textSize="12sp"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/txtTelefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Teléfono: Cargando..."
+            android:text="Ubicación: Av. Principal #123, CDMX"
             android:textSize="12sp"
             android:textAlignment="center" />
 

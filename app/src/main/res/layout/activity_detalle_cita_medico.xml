@@ -86,6 +86,7 @@
                 android:padding="25dp"
                 android:background="#d6edff"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -104,6 +105,7 @@
                         android:text="Finalizada"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,6 +124,7 @@
                         android:text="24 / 10 / 2025"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -140,6 +143,7 @@
                         android:text="09:00 a.m."
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -158,6 +162,7 @@
                         android:text="Juan Lopez"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -176,6 +181,7 @@
                         android:text="Consultorio C"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -195,6 +201,7 @@
                         android:textSize="16sp"
                         android:layout_marginTop="4dp"/>
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/btnMasDetalles"
                     style="@style/AppButtonStyle"
@@ -204,6 +211,7 @@
         </LinearLayout>
 
     </ScrollView>
+
     <LinearLayout
         android:id="@+id/footer"
         android:layout_width="match_parent"
@@ -220,6 +228,5 @@
             android:text="Ubicación: Av. Principal #123, CDMX"
             android:textSize="12sp"
             android:textAlignment="center" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

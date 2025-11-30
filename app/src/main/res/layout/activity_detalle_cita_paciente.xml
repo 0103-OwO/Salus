@@ -54,6 +54,7 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleLarge"
@@ -64,6 +65,7 @@
         app:layout_constraintBottom_toTopOf="@id/footer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -95,6 +97,7 @@
                 android:padding="25dp"
                 android:background="#d6edff"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,9 +113,10 @@
                         android:id="@+id/txtEstadoCita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:text="Pendiente"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,9 +132,10 @@
                         android:id="@+id/txtFechaCita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:text="01 / 12 / 2025"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -146,9 +151,10 @@
                         android:id="@+id/txtHoraCita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:text="10:30 a.m."
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,9 +170,10 @@
                         android:id="@+id/txtMedicoCita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:text="Dr. Carlos Pérez"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -182,9 +189,10 @@
                         android:id="@+id/txtEspecialidad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:text="Cardiología"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -200,9 +208,10 @@
                         android:id="@+id/txtConsultorioCita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:text="Consultorio A"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -218,9 +227,11 @@
                         android:id="@+id/txtDescripcionCita"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="Control de presión arterial."
                         android:textSize="16sp"
                         android:layout_marginTop="4dp"/>
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/btnMasDetalles"
                     style="@style/AppButtonStyle"
@@ -228,8 +239,8 @@
 
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
+
     <LinearLayout
         android:id="@+id/footer"
         android:layout_width="match_parent"
@@ -246,6 +257,5 @@
             android:text="Ubicación: Av. Principal #123, CDMX"
             android:textSize="12sp"
             android:textAlignment="center" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
