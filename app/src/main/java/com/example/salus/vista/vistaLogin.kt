@@ -3,6 +3,7 @@ package com.example.salus.vista
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -47,6 +48,11 @@ class vistaLogin : AppCompatActivity(), contratoLogin.LoginView {
                 Toast.makeText(this, "Ingrese usuario y contraseña", Toast.LENGTH_SHORT).show()
             }
         }
+        val btnRegistrar: Button = findViewById(R.id.btnRegistrarse)
+        btnRegistrar.setOnClickListener {
+            val intent = Intent(this, vistaRegistro::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -69,16 +75,16 @@ class vistaLogin : AppCompatActivity(), contratoLogin.LoginView {
         guardarSesion(response)
         when(response.tipo) {
             "medico" -> {
-                val intent = Intent(this, CitasMedicoActivity::class.java)
+                val intent = Intent(this, vistaHomeMedico::class.java)
                 intent.putExtra("NOMBRE_USUARIO", response.nombre)
-                intent.putExtra("ID_MEDICO", response.id)  // ← CAMBIAR A ID_MEDICO
+                intent.putExtra("ID_MEDICO", response.id)
                 startActivity(intent)
                 finish()
             }
             "paciente" -> {
-                val intent = Intent(this, CitasActivity::class.java)
+                val intent = Intent(this, vistaHomePacientes::class.java)
                 intent.putExtra("NOMBRE_USUARIO", response.nombre)
-                intent.putExtra("ID_PACIENTE", response.id) // Cambiar a ID_PACIENTE
+                intent.putExtra("ID_PACIENTE", response.id)
                 startActivity(intent)
                 finish()
             }

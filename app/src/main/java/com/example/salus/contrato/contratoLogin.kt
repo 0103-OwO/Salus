@@ -1,4 +1,6 @@
 package com.example.salus.contrato
+import com.example.salus.modelo.Contacto
+import com.example.salus.modelo.Imagenes
 import com.example.salus.modelo.apiService
 import com.example.salus.modelo.loginResponse
 import com.example.salus.vista.vistaLogin

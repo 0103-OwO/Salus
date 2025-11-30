@@ -16,6 +16,7 @@ import com.example.salus.modelo.Cita
 import com.example.salus.presentador.CitaPresentador
 import android.view.View
 import android.widget.Toast
+import android.content.Intent
 
 class CitasActivity : AppCompatActivity(), ContratoCita.View {
 
@@ -24,6 +25,7 @@ class CitasActivity : AppCompatActivity(), ContratoCita.View {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvMensajeVacio: TextView
     private lateinit var adapter: CitasAdapter
+    private lateinit var txtNombreUsuario: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,18 +44,18 @@ class CitasActivity : AppCompatActivity(), ContratoCita.View {
 
         inicializarVistas()
 
-        // Configurar RecyclerView
+        val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Invitado"
+
+        txtNombreUsuario.text = nombreUsuario
+
         configurarRecyclerView()
 
-        // Inicializar presenter
         presenter = CitaPresentador(this)
 
-        // Obtener ID del paciente desde Intent o SharedPreferences
         val idPaciente = obtenerIdPaciente()
 
         Log.d("CitasActivity", "ID Paciente final: $idPaciente")
 
-        // Cargar citas
         if (idPaciente > 0) {
             Log.d("CitasActivity", " Cargando citas para paciente: $idPaciente")
             presenter.cargarCitas(idPaciente)
@@ -67,16 +69,24 @@ class CitasActivity : AppCompatActivity(), ContratoCita.View {
         recyclerView = findViewById(R.id.recyclerViewCitas)
         progressBar = findViewById(R.id.progressBar)
         tvMensajeVacio = findViewById(R.id.tvMensajeVacio)
+        txtNombreUsuario = findViewById(R.id.txtNombreUsuario)
     }
 
     private fun configurarRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = CitasAdapter(emptyList())
+        adapter = CitasAdapter(emptyList()){ cita -> abrirDetalleCita(cita.id_cita)}
         recyclerView.adapter = adapter
     }
+    private fun abrirDetalleCita(idCita: Int) {
+        val intent = Intent(this, detalleCitaPaciente::class.java).apply {
+            putExtra("ID_CITA", idCita)
 
+            val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO")
+            putExtra("NOMBRE_USUARIO", nombreUsuario)
+        }
+        startActivity(intent)
+    }
     private fun obtenerIdPaciente(): Int {
-        // Opción 1: Desde Intent
         val idDesdeIntent = intent.getIntExtra("ID_PACIENTE", 0)
         if (idDesdeIntent > 0) {
             Log.d("CitasActivity", " ID desde Intent: $idDesdeIntent")

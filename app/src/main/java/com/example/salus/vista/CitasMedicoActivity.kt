@@ -1,5 +1,6 @@
 package com.example.salus.vista
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ProgressBar
@@ -24,6 +25,7 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvMensajeVacio: TextView
     private lateinit var adapter: CitasMedicoAdapter
+    private lateinit var txtNombreUsuario: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,7 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Configurar ActionBar
+
         supportActionBar?.title = "Mis Citas - Médico"
 
         // DEBUG: Ver lo que llega en el Intent
@@ -42,21 +44,20 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
         Log.d("CitasMedicoActivity", "NOMBRE_USUARIO: ${intent.getStringExtra("NOMBRE_USUARIO")}")
         Log.d("CitasMedicoActivity", "ID_MEDICO: ${intent.getIntExtra("ID_MEDICO", -1)}")
 
-        // Inicializar vistas
         inicializarVistas()
 
-        // Configurar RecyclerView
+        val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Invitado"
+
+        txtNombreUsuario.text = nombreUsuario
+
         configurarRecyclerView()
 
-        // Inicializar presenter
         presenter = CitasMedicoPresenter(this)
 
-        // Obtener ID del médico
         val idMedico = obtenerIdMedico()
 
         Log.d("CitasMedicoActivity", "ID Médico final: $idMedico")
 
-        // Cargar citas
         if (idMedico > 0) {
             Log.d("CitasMedicoActivity", "Cargando citas para médico: $idMedico")
             presenter.cargarCitas(idMedico)
@@ -69,14 +70,24 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
         recyclerView = findViewById(R.id.recyclerViewCitasMedico)
         progressBar = findViewById(R.id.progressBar)
         tvMensajeVacio = findViewById(R.id.tvMensajeVacio)
+        txtNombreUsuario = findViewById(R.id.txtNombreUsuario)
     }
 
     private fun configurarRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = CitasMedicoAdapter(emptyList())
+        adapter = CitasMedicoAdapter(emptyList(),{ cita -> abrirDetalleCita(cita.id_cita) })
         recyclerView.adapter = adapter
     }
+    private fun abrirDetalleCita(idCita: Int) {
+        val intent = Intent(this, detalleCitaMedico::class.java).apply {
+            putExtra("ID_CITA", idCita)
 
+            // Opcional: Pasar el nombre del médico para el header de la actividad de detalle
+            val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO")
+            putExtra("NOMBRE_USUARIO", nombreUsuario)
+        }
+        startActivity(intent)
+    }
     private fun obtenerIdMedico(): Int {
         // Opción 1: Desde Intent
         val idDesdeIntent = intent.getIntExtra("ID_MEDICO", 0)

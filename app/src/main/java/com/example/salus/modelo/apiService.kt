@@ -7,17 +7,33 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.Response
 
 interface apiService {
     // Login
     @POST("login.php")
     fun login(@Body request: Map<String, String>): Call<loginResponse>
 
-   @GET("citasPaciente.php")
+    @POST("registro.php")
+    fun registrarPaciente(@Body request: RegistroRequest): Call<RegistroResponse>
+    @GET("citasPaciente.php")
     fun obtenerCitas(@Query("id") idPaciente: Int): Call<CitaRepuesta>
 
     @GET("citasMedicos.php")
     fun obtenerCitaMedico(@Query("id") idMedico: Int): Call<respuestasCitasMedico>
+
+    @GET("detalleCita.php")
+    fun obtenerDetalleCita(@Query("id") idCita: Int): Call<DetalleCitaResponse>
+
+    @GET("historialCita.php") // <--- NUEVO ENDPOINT
+    fun obtenerHistorialCita(@Query("idCita") idCita: Int): Call<HistorialResponse>
+
+    @GET("global/contacto")
+    suspend fun getDatosContacto(): Contacto
+
+            @GET("logos.php")
+        suspend fun getImagenes(): Response<imagenesResponse>
+
     companion object {
         private const val BASE_URL = "https://equipo3.grupoahost.com/Api/"
 

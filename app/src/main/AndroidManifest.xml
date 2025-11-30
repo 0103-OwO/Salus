@@ -17,13 +17,31 @@
         android:theme="@style/Theme.Salus"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".vista.vistaHistorialMedico"
+            android:exported="false" />
+        <activity
+            android:name=".vista.vistaHistorialPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".vista.detalleCitaPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".vista.detalleCitaMedico"
+            android:exported="false" />
+        <activity
+            android:name=".vista.vistaHomeMedico"
+            android:exported="false" />
+        <activity
+            android:name=".vista.vistaHomePacientes"
+            android:exported="false" />
+        <activity
+            android:name=".vista.vistaRegistro"
+            android:exported="false" />
+        <activity
             android:name=".vista.CitasMedicoActivity"
             android:exported="false" />
         <activity
             android:name=".vista.CitasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".vista.vistaMedico"
             android:exported="false" />
         <activity
             android:name=".vista.vistaLogin"

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/registro"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#4D9FDC">
+
+        <ImageView
+            android:id="@+id/logoEmpresa"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/logo_oficial"
+            android:contentDescription="Logo empresa"/>
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salus CMA"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <LinearLayout
+            android:id="@+id/frmRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+            <TextView
+                android:id="@+id/txtTituloRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="Registro"
+                android:textAlignment="center"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CURP:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtCurp"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu CURP"
+                android:inputType="textCapCharacters"
+                android:maxLength="18" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre(s):"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtNombre"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu nombre(s)"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido paterno:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtAPaterno"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu apellido paterno"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido materno:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtAMaterno"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu apellido materno"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha de nacimiento:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtFNacimiento"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Ingresa tu fecha de nacimiento" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtCorreo"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu correo electronico"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User name:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtUName"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu nombre de usuario"
+                android:inputType="textNoSuggestions|textVisiblePassword" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contraseña:"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/edtContraseña"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_border"
+                android:hint="Ingresa tu contraseña"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btnGuardar"
+                style="@style/AppButtonStyle"
+                android:text="Guardar"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#E9F2FB">
+        <TextView
+            android:id="@+id/txtUbicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicación: Av. Principal #123, CDMX"
+            android:textSize="12sp"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

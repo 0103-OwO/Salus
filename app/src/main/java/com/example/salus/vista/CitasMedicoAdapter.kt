@@ -3,12 +3,13 @@ package com.example.salus.vista
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.salus.R
 import com.example.salus.modelo.CitaMedico
 
-class CitasMedicoAdapter(private var citas: List<CitaMedico>) :
+class CitasMedicoAdapter(private var citas: List<CitaMedico>,private val clickListener: (CitaMedico) -> Unit) :
     RecyclerView.Adapter<CitasMedicoAdapter.CitaMedicoViewHolder>() {
 
     class CitaMedicoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -16,6 +17,7 @@ class CitasMedicoAdapter(private var citas: List<CitaMedico>) :
         val tvHora: TextView = view.findViewById(R.id.tvHora)
         val tvPaciente: TextView = view.findViewById(R.id.tvPaciente)
         val tvConsultorio: TextView = view.findViewById(R.id.tvConsultorio)
+        val btnVerMas: Button = view.findViewById(R.id.btnVerMas)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CitaMedicoViewHolder {
@@ -30,6 +32,9 @@ class CitasMedicoAdapter(private var citas: List<CitaMedico>) :
         holder.tvHora.text = "Hora: ${cita.hora}"
         holder.tvPaciente.text = "Paciente: ${cita.nombre_paciente}"
         holder.tvConsultorio.text = "Consultorio: ${cita.consultorio}"
+        holder.btnVerMas.setOnClickListener {
+            clickListener(cita)
+        }
     }
 
     override fun getItemCount(): Int = citas.size

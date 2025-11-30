@@ -46,6 +46,20 @@
             android:layout_marginTop="8dp"
             android:drawableLeft="@android:drawable/ic_dialog_map"
             android:drawablePadding="8dp" />
+        <Button
+            android:id="@+id/btnVerMas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver más"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="end"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textColor="#2196F3"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
 
     </LinearLayout>
 
