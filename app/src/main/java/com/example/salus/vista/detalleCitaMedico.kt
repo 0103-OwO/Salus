@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.salus.R
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -39,7 +40,10 @@ class detalleCitaMedico : AppCompatActivity(), DetalleCitaContract.View  {
         }
 
         inicializarVistas()
-
+        val btnRegresar = findViewById<ImageView>(R.id.btnRegresarr)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
         presenter = DetalleCitaPresenter(this)
 
         val idCita = intent.getIntExtra("ID_CITA", 0)

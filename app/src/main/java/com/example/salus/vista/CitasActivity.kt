@@ -17,6 +17,7 @@ import com.example.salus.presentador.CitaPresentador
 import android.view.View
 import android.widget.Toast
 import android.content.Intent
+import android.widget.ImageView
 
 class CitasActivity : AppCompatActivity(), ContratoCita.View {
 
@@ -43,7 +44,10 @@ class CitasActivity : AppCompatActivity(), ContratoCita.View {
         Log.d("CitasActivity", "ID_PACIENTE: ${intent.getIntExtra("ID_PACIENTE", -1)}")
 
         inicializarVistas()
-
+        val btnRegresar = findViewById<ImageView>(R.id.btnRegresarr)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Invitado"
 
         txtNombreUsuario.text = nombreUsuario
@@ -103,7 +107,6 @@ class CitasActivity : AppCompatActivity(), ContratoCita.View {
         return idDesdePrefs
     }
 
-    // Implementación de CitasContract.View
     override fun mostrarCitas(citas: List<Cita>) {
         recyclerView.visibility = View.VISIBLE
         tvMensajeVacio.visibility = View.GONE

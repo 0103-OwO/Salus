@@ -18,34 +18,44 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".vista.vistaHistorialMedico"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.vistaHistorialPaciente"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.detalleCitaPaciente"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.detalleCitaMedico"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.vistaHomeMedico"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.vistaHomePacientes"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.vistaRegistro"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.CitasMedicoActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.CitasActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".vista.vistaLogin"
             android:theme="@style/Theme.App.Starting"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

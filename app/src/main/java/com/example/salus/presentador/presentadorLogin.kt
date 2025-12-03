@@ -24,7 +24,6 @@
                 ) {
                     view?.hideProgress()
 
-                    // --- Si la respuesta NO es exitosa ---
                     if (!response.isSuccessful) {
                         Log.e("LOGIN", "Código HTTP: ${response.code()}")
                         Log.e("LOGIN", "Error body: ${response.errorBody()?.string()}")
@@ -34,8 +33,8 @@
 
                     val body = response.body()
                     Log.i("LOGIN", "Respuesta exitosa: $body")
-                    Log.i("LOGIN", "ID recibido: ${body?.id}")  // ← AGREGAR ESTE LOG
-                    Log.i("LOGIN", "Tipo: ${body?.tipo}")        // ← AGREGAR ESTE LOG
+                    Log.i("LOGIN", "ID recibido: ${body?.id}")
+                    Log.i("LOGIN", "Tipo: ${body?.tipo}")
 
                     if (body != null && body.status == "ok") {
                         view?.onLoginSuccess(body)

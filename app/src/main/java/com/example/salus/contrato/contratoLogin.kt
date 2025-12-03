@@ -14,7 +14,6 @@ interface contratoLogin {
 
     }
 
-    // LoginPresenter.kt
     interface LoginPresenter {
         fun login(usuario: String, contrasena: String)
         fun onDestroy()

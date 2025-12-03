@@ -83,7 +83,7 @@ class RegistroPresenter(private var view: RegistroContract.View?) : RegistroCont
         usuario: String,
         contrasena: String
     ): Boolean {
-        // Validar CURP
+
         if (curp.isBlank()) {
             view?.mostrarErrorCampo("curp", "El CURP es obligatorio")
             return false
@@ -93,31 +93,31 @@ class RegistroPresenter(private var view: RegistroContract.View?) : RegistroCont
             return false
         }
 
-        // Validar nombre
+
         if (nombre.isBlank()) {
             view?.mostrarErrorCampo("nombre", "El nombre es obligatorio")
             return false
         }
 
-        // Validar apellido paterno
+
         if (apellidoPaterno.isBlank()) {
             view?.mostrarErrorCampo("apellido_paterno", "El apellido paterno es obligatorio")
             return false
         }
 
-        // Validar apellido materno
+
         if (apellidoMaterno.isBlank()) {
             view?.mostrarErrorCampo("apellido_materno", "El apellido materno es obligatorio")
             return false
         }
 
-        // Validar fecha de nacimiento
+
         if (fechaNacimiento.isBlank()) {
             view?.mostrarErrorCampo("fecha_nacimiento", "La fecha de nacimiento es obligatoria")
             return false
         }
 
-        // Validar email
+
         if (email.isBlank()) {
             view?.mostrarErrorCampo("email", "El correo es obligatorio")
             return false

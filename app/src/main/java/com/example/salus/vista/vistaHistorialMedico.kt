@@ -10,6 +10,7 @@ import com.example.salus.contrato.HistorialMedicoContract
 import com.example.salus.presentador.HistorialMedicoPresenter
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -19,7 +20,6 @@ class vistaHistorialMedico : AppCompatActivity(), HistorialMedicoContract.View {
     private lateinit var presenter: HistorialMedicoPresenter
     private var idCita: Int = -1
 
-    // Vistas del layout
     private lateinit var frmDetalleHistorialMedico: View
     private lateinit var progressBar: ProgressBar
     private lateinit var txtPacienteCita: TextView
@@ -28,7 +28,7 @@ class vistaHistorialMedico : AppCompatActivity(), HistorialMedicoContract.View {
     private lateinit var txtTallaCita: TextView
     private lateinit var txtTemperaturaCita: TextView
     private lateinit var txtDescripcionCita: TextView
-    private lateinit var txtNombreUsuario: TextView //
+    private lateinit var txtNombreUsuario: TextView
     private lateinit var btnRegresar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,14 @@ class vistaHistorialMedico : AppCompatActivity(), HistorialMedicoContract.View {
         setContentView(R.layout.activity_vista_historial_medico)
 
         inicializarVistas()
-
+        val regresar = findViewById<ImageView>(R.id.Regresarr)
+        regresar.setOnClickListener {
+            finish()
+        }
+        val btnRegresar = findViewById<Button>(R.id.btnRegresar)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
         idCita = intent.getIntExtra("ID_CITA_HISTORIAL", -1)
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Médico"
         txtNombreUsuario.text = nombreUsuario
@@ -71,7 +78,7 @@ class vistaHistorialMedico : AppCompatActivity(), HistorialMedicoContract.View {
         txtDescripcionCita = findViewById(R.id.txtDescripcionCita)
 
         txtNombreUsuario = findViewById(R.id.txtNombreUsuario)
-        btnRegresar = findViewById(R.id.btnRegresar)
+        btnRegresar = findViewById(R.id.btnRegresarr)
     }
 
     override fun mostrarHistorial(historial: HistorialMedico) {

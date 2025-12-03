@@ -10,6 +10,7 @@ import com.example.salus.contrato.HistorialPacienteContract
 import com.example.salus.presentador.HistorialPacientePresenter
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -34,7 +35,14 @@ class vistaHistorialPaciente : AppCompatActivity(), HistorialPacienteContract.Vi
         setContentView(R.layout.activity_vista_historial_paciente)
 
         inicializarVistas()
-
+        val regresar = findViewById<ImageView>(R.id.Regresarr)
+        regresar.setOnClickListener {
+            finish()
+        }
+        val btnRegresar = findViewById<Button>(R.id.btnRegresar)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
         idCita = intent.getIntExtra("ID_CITA_HISTORIAL", -1)
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Paciente"
         txtNombreUsuario.text = nombreUsuario
@@ -71,7 +79,7 @@ class vistaHistorialPaciente : AppCompatActivity(), HistorialPacienteContract.Vi
         txtDescripcion = findViewById(R.id.txtDescripcion)
 
         txtNombreUsuario = findViewById(R.id.txtNombreUsuario)
-        btnRegresar = findViewById(R.id.btnRegresar)
+        btnRegresar = findViewById(R.id.btnRegresarr)
     }
 
     override fun mostrarHistorial(historial: HistorialPaciente) {

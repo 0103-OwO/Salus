@@ -16,6 +16,7 @@ import com.example.salus.contrato.CitasMedicoContract
 import com.example.salus.modelo.CitaMedico
 import com.example.salus.presentador.CitasMedicoPresenter
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 
 class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
@@ -45,7 +46,10 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
         Log.d("CitasMedicoActivity", "ID_MEDICO: ${intent.getIntExtra("ID_MEDICO", -1)}")
 
         inicializarVistas()
-
+        val btnRegresar = findViewById<ImageView>(R.id.btnRegresarr)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Invitado"
 
         txtNombreUsuario.text = nombreUsuario
@@ -82,21 +86,21 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
         val intent = Intent(this, detalleCitaMedico::class.java).apply {
             putExtra("ID_CITA", idCita)
 
-            // Opcional: Pasar el nombre del médico para el header de la actividad de detalle
+
             val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO")
             putExtra("NOMBRE_USUARIO", nombreUsuario)
         }
         startActivity(intent)
     }
     private fun obtenerIdMedico(): Int {
-        // Opción 1: Desde Intent
+
         val idDesdeIntent = intent.getIntExtra("ID_MEDICO", 0)
         if (idDesdeIntent > 0) {
             Log.d("CitasMedicoActivity", "ID desde Intent: $idDesdeIntent")
             return idDesdeIntent
         }
 
-        // Opción 2: Desde SharedPreferences
+
         val prefs = getSharedPreferences("MiApp", MODE_PRIVATE)
         val idDesdePrefs = prefs.getInt("id_medico", 0)
         Log.d("CitasMedicoActivity", "ID desde SharedPreferences: $idDesdePrefs")
@@ -108,7 +112,7 @@ class CitasMedicoActivity : AppCompatActivity(), CitasMedicoContract.View {
         return idDesdePrefs
     }
 
-    // Implementación de CitasMedicoContract.View
+
     override fun mostrarCitas(citas: List<CitaMedico>) {
         recyclerView.visibility = View.VISIBLE
         tvMensajeVacio.visibility = View.GONE

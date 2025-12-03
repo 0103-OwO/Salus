@@ -25,14 +25,8 @@ interface apiService {
     @GET("detalleCita.php")
     fun obtenerDetalleCita(@Query("id") idCita: Int): Call<DetalleCitaResponse>
 
-    @GET("historialCita.php") // <--- NUEVO ENDPOINT
+    @GET("historialCita.php") //
     fun obtenerHistorialCita(@Query("idCita") idCita: Int): Call<HistorialResponse>
-
-    @GET("global/contacto")
-    suspend fun getDatosContacto(): Contacto
-
-            @GET("logos.php")
-        suspend fun getImagenes(): Response<imagenesResponse>
 
     companion object {
         private const val BASE_URL = "https://equipo3.grupoahost.com/Api/"

@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.salus.modelo.DetalleCita
 
@@ -37,6 +38,11 @@ class detalleCitaPaciente : AppCompatActivity(), DetalleCitaContract.View {
         enableEdgeToEdge()
         setContentView(R.layout.activity_detalle_cita_paciente)
         inicializarVistas()
+
+        val btnRegresar = findViewById<ImageView>(R.id.btnRegresarr)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
 
         idCita = intent.getIntExtra("ID_CITA", 0)
         val nombreUsuario = intent.getStringExtra("NOMBRE_USUARIO") ?: "Paciente"
@@ -63,6 +69,7 @@ class detalleCitaPaciente : AppCompatActivity(), DetalleCitaContract.View {
         } else {
             mostrarError("ID de cita inválido")
         }
+
     }
 
     private fun inicializarVistas() {
@@ -108,7 +115,7 @@ class detalleCitaPaciente : AppCompatActivity(), DetalleCitaContract.View {
     }
 
     private fun formatearFecha(fecha: String): String {
-        // Formato: 2024-12-05 -> 05/12/2024
+
         val partes = fecha.split("-")
         return if (partes.size == 3) {
             "${partes[2]}/${partes[1]}/${partes[0]}"
@@ -118,7 +125,7 @@ class detalleCitaPaciente : AppCompatActivity(), DetalleCitaContract.View {
     }
 
     private fun formatearHora(hora: String): String {
-        // Formato: 10:00:00 -> 10:00 a.m.
+
         val partes = hora.split(":")
         if (partes.size >= 2) {
             val horas = partes[0].toIntOrNull() ?: 0

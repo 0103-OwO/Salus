@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -43,7 +44,10 @@ class vistaRegistro : AppCompatActivity(), RegistroContract.View  {
 
         inicializarVistas()
         configurarDatePicker()
-
+        val btnRegresar = findViewById<ImageView>(R.id.btnRegresarr)
+        btnRegresar.setOnClickListener {
+            finish()
+        }
         presenter = RegistroPresenter(this)
 
         btnGuardar.setOnClickListener {
@@ -61,7 +65,6 @@ class vistaRegistro : AppCompatActivity(), RegistroContract.View  {
         edtContrasena = findViewById(R.id.edtContraseña)
         btnGuardar = findViewById(R.id.btnGuardar)
 
-        // Crear ProgressBar programáticamente si no existe en el XML
         progressBar = ProgressBar(this).apply {
             visibility = View.GONE
         }
@@ -91,7 +94,6 @@ class vistaRegistro : AppCompatActivity(), RegistroContract.View  {
                 day
             )
 
-            // Establecer fecha máxima (hoy)
             datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
 
             datePickerDialog.show()
@@ -133,7 +135,6 @@ class vistaRegistro : AppCompatActivity(), RegistroContract.View  {
     override fun onRegistroExitoso(response: RegistroResponse) {
         Toast.makeText(this, response.msg, Toast.LENGTH_LONG).show()
 
-        // Regresar al login después de 2 segundos
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, vistaLogin::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
